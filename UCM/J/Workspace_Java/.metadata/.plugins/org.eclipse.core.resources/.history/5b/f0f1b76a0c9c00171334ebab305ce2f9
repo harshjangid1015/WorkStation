@@ -1,0 +1,27 @@
+package javaHW;
+
+
+public class GuessLetter {
+	public static void main(String[] args) throws java.io.IOException {
+		char ch='A';
+		while(ch!='R') {
+			ch = (char) System.in.read();
+			if (ch=='R') {
+				System.out.println("I'm thinking of a letter between A and Z. Enter your guess: ");
+				System.out.println("**Right**");				
+			}
+			else {
+				if ((ch<'R')) {
+					System.out.println("I'm thinking of a letter between A and Z. Enter your guess: ");
+					System.out.println("Guess higher");
+				}
+				else {
+					System.out.println("I'm thinking of a letter between A and Z. Enter your guess: ");
+					System.out.println("Guess lower");
+				}			
+			}
+
+		}
+	}
+
+}

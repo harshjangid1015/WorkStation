@@ -1,0 +1,2 @@
+this is so cool!
+Now I can create text files using python, Let's see where this text goes!

@@ -1,0 +1,23 @@
+package javaHW;
+
+//import java.util.Scanner;
+public class GuessLetter {
+	public static void main(String[] args) throws java.io.IOException {
+		//Scanner scan = new Scanner(System.in);
+		char ch='A';
+		while(ch!='R') {
+			System.out.println("I'm thinking of a letter between A and Z. Enter your guess: ");
+			ch = (char) System.in.read();
+			if (ch<'R') {
+				System.out.println("Guess higher");				
+			}
+			else if (ch>'R') {
+				System.out.println("Guess lower");			
+			}
+			else {
+				System.out.println("**Right**");
+			}
+		}
+	}
+
+}

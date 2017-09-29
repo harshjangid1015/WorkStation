@@ -1,0 +1,13 @@
+package javaHW;
+
+import java.util.Scanner;
+
+public class RandomInt {
+	public static void main(String[] args) {
+		System.out.println("Enter a maximum positive number for random number generation: ");
+		Scanner scan = new Scanner(System.in);
+		int maxNum = scan.nextInt();
+		System.out.println(maxNum);
+	}
+
+}
