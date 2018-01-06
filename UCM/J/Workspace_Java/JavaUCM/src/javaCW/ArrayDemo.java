@@ -7,7 +7,7 @@ public class ArrayDemo {
 		
 		for (i=0; i<sample.length; i=i+1)
 			sample[i]=i;
-		
+				
 		for (i = 0; i<sample.length; i=i+1)
 			System.out.println("This is sample(" + i + "): "+ sample[i]);
 	}

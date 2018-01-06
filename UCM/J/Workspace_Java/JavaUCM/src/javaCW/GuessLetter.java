@@ -3,8 +3,7 @@ package javaCW;
 import java.util.Scanner;
 
 public class GuessLetter {
-	public static void main(String[] args) 
-	throws java.io.IOException{
+	public static void main(String[] args) throws java.io.IOException{
 		
 		char minNum = 'A', maxNum ='Z';
 		char ch;

@@ -6,13 +6,13 @@ public class Power {
 		int result;
 
 		for (int i=0; i<10;i++) {
-			result=1;
+			result=i;
 			e=1;
 			while(e>0) {				//also try with for loop
 				result*=2;
 				e--;
 			}
-			System.out.println("2 to the "+ i+ "power is " +result);
+			System.out.println("2 to the "+ i+ " power is " +result);
 			
 		}
 

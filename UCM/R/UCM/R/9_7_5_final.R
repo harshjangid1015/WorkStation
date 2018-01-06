@@ -1,0 +1,25 @@
+set.seed(1)
+x1 = runif(500) - 0.5
+x2 = runif(500) - 0.5
+y = 1*(x1^2 - x2^2 > 0)
+plot( x1, x2, col=(y+1), pch=1, xlab='x1', ylab='x2', main='initial data' )
+glm.fit = glm(y ~ x1 + x2, family = binomial)
+summary(glm.fit)
+dat = data.frame(x1=x1, x2=x2, y=as.factor(y))
+glm.prob = predict(glm.fit, dat, type = "response")
+y_pred = 1*(glm.prob>0.5)
+plot(x1, x2, col=y_pred+1, pch=1, xlab = "x1", ylab = "x2", main = "logistic regression")
+glm.fit2 = glm(y ~ x1 + x2 + I(x1^2) + I(x2^2) + I(x1*x2), data = dat, family = binomial)
+data_wo_cls = data.frame(x1=x1, x2=x2)
+glm.prob2 = predict(glm.fit2, data_wo_cls, type = "response")
+y_pred2 = 1*(glm.prob2>0.5)
+plot(x1, x2, col=y_pred2+1, pch=1, xlab = "x1", ylab = "x2", main = "logistic regression with non-linear function")
+
+library(e1071)
+svc.fit = svm(y ~ x1 + x2, data=dat, kernel="linear", cost = 0.1)
+svc.pred = predict(svc.fit, data_wo_cls)
+plot(x1, x2, col=svc.pred, pch=1, xlab = "x1", ylab = "x2", main = "supoort vector classifier, kernel=linear")
+
+svm.fit = svm(y ~ x1 + x2, data=dat,kernel="radial", gamma=1, cost = 0.1)
+svm.pred = predict(svm.fit, data_wo_cls)
+plot(x1, x2, col=svm.pred, pch=1, xlab = "x1", ylab = "x2", main = "supoort vector machine, kernel=radial")
