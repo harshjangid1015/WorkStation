@@ -38,8 +38,7 @@ class darkRoom{
 			Batteries.unlock();
 			FlashLight.unlock();			
 		}
-		
-		
+				
 	}
 	
 	public static void giveBatteriesAndFlashLight() {

@@ -1,5 +1,6 @@
 package cs4120;
 
+import java.util.Random;
 import java.util.concurrent.*;
 
 /*30.13 (Generic parallel merge sort) Revise Listing 30.10, ParallelMergeSort.java, to
@@ -7,35 +8,42 @@ define a generic parallelMergeSort method as follows:
 public static <E extends Comparable<E>> void parallelMergeSort(E[] list) */
 public class GenericParallelMergeSort {
 	public static void main(String[] args) {
-		int size = 5000;
+		int size = 2000;
 		Integer[] intArray = new Integer[size];
-		
+
 
 		for(int i=0; i<size; i++) {
 			intArray[i] = (int)(Math.random()*1000);
 		}
-		System.out.print("Array List: " );
+		System.out.print("Integer Array List: " );
 		for (int i = 0; i < size; i++) {
 			System.out.print(intArray[i] + ", ");
 		}
 		System.out.println();
 		parallelMergeSort(intArray);
-		System.out.print("Sorted Array List: " );
+		System.out.print("Sorted Integer Array List: " );
 		for (int i = 0; i < size; i++) {
 			System.out.print(intArray[i] + ", ");
 		}
-		
-		System.out.println();
-		System.out.println();
-		String[] strArray = new String[size];
-		int[] val = new int[size];
 
-	    for (int i=0; i<strArray.length; i++) {
-	        val[i] = (int)(1000 * Math.random());
-	        strArray[i] = String.valueOf(val[i]);
-	    }
-	    //print string array
-	    System.out.print("String Array List: " );
+		System.out.println();
+		System.out.println();
+		//Generating random strings
+		Random rand = new Random();
+		String Alphabets = "abcdefghijklmnopqrstuvwxyz";
+		String[] strArray = new String[size];
+		for(int i = 0; i < strArray.length; i++) {
+			String Str1 = "";
+			int randStrLen = 5;
+			for(int j = 0; j<randStrLen; j++) {
+				char c = Alphabets.charAt(rand.nextInt(26));
+				Str1 = Str1 + c;
+				strArray[i] =  Str1;
+			}
+		}
+
+		//print string array
+		System.out.print("Random String Array List: " );
 		for (int i = 0; i < size; i++) {
 			System.out.print(strArray[i] + ", ");
 		}
@@ -45,8 +53,7 @@ public class GenericParallelMergeSort {
 		for (int i = 0; i < size; i++) {
 			System.out.print(strArray[i] + ", ");
 		}
-		
-		
+
 	}
 
 	public static <E extends Comparable<E>> void parallelMergeSort(E[] list) {
@@ -81,7 +88,7 @@ public class GenericParallelMergeSort {
 				invokeAll(new sortTask(firstHalf), new sortTask(secondHalf));
 
 				//Merge first half with second half into list
-				
+
 				merge(firstHalf, secondHalf, list);
 			}
 
