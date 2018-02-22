@@ -14,14 +14,14 @@ public class ParallelSum {
 			list[i] = Math.random();
 		}
 		long startTime = System.currentTimeMillis();
-		System.err.println("Parallel Sum: " + parallelSum(list));
+		System.out.println("Parallel Sum: " + parallelSum(list));
 		long endTime = System.currentTimeMillis();
 		System.out.println("Parallel time with " + Runtime.getRuntime().availableProcessors() +" processors is " + (endTime - startTime) + " milliseconds");
 		
 		
 		System.out.println();
 		startTime = System.currentTimeMillis();
-		System.err.println("Sequential Sum: " + sequentialSum(list));
+		System.out.println("Sequential Sum: " + sequentialSum(list));
 		endTime = System.currentTimeMillis();		
 		System.out.println("Time taken: " + (endTime-startTime)+ " miliseconds");
 		
